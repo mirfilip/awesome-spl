@@ -5,7 +5,6 @@ namespace iterators;
 
 use org\bovigo\vfs\vfsStream;
 use org\bovigo\vfs\vfsStreamDirectory;
-use org\bovigo\vfs\visitor\vfsStreamStructureVisitor;
 
 /**
  * Class DirectoryIteratorTest
@@ -93,5 +92,32 @@ class DirectoryIteratorTest extends \PHPUnit_Framework_TestCase
         $this->rootDirIterator->seek(4);
 
         $this->assertSame('bar', $this->rootDirIterator->current()->getFilename());
+    }
+
+    /**
+     * @test
+     */
+    public function itCanTellTheDifferenceBetweenFilesAndDirectories()
+    {
+        $filesFound = [];
+        $directoriesFound = [];
+
+        /** @var \DirectoryIterator $item */
+        foreach ($this->rootDirIterator as $item) {
+            switch (true) {
+                case $item->isFile():
+                    $filesFound[] = $item->getFilename();
+                    break;
+                case $item->isDir():
+                    $directoriesFound[] = $item->getFilename();
+                    break;
+            }
+        }
+
+        $expectedFiles = ['foo'];
+        $this->assertSame($expectedFiles, $filesFound);
+
+        $expectedDirectories = ['.', '..', 'emptyFolder', 'bar'];
+        $this->assertSame($expectedDirectories, $directoriesFound);
     }
 }
