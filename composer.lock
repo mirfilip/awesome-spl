@@ -4,9 +4,55 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8a5a7f533aaaf13f85cc82d659725eae",
-    "content-hash": "044db4c4fc0967d01e20252eae65925a",
+    "hash": "905c2a5546a7b6e9d1e9fd4505e6c21d",
+    "content-hash": "61c07a500e7b32cb9424503b8ab6da3a",
     "packages": [
+        {
+            "name": "diablomedia/phpunit-pretty-printer",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/diablomedia/phpunit-pretty-printer.git",
+                "reference": "5ad8f7019845fce9341eff0fcdaf2934ce890cfd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/diablomedia/phpunit-pretty-printer/zipball/5ad8f7019845fce9341eff0fcdaf2934ce890cfd",
+                "reference": "5ad8f7019845fce9341eff0fcdaf2934ce890cfd",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0",
+                "phpunit/phpunit": ">=4.7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DiabloMedia\\PHPUnit\\Printer\\": "src/DiabloMedia/PHPUnit/Printer"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ari Pringle",
+                    "email": "ari@diablomedia.com",
+                    "homepage": "https://diablomedia.com"
+                }
+            ],
+            "description": "A PHPUnit result printer that shows per-file test progress and execution times",
+            "homepage": "https://github.com/diablomedia/phpunit-pretty-printer",
+            "keywords": [
+                "phpunit",
+                "printer",
+                "result",
+                "test",
+                "unit"
+            ],
+            "time": "2016-02-16 21:45:23"
+        },
         {
             "name": "doctrine/instantiator",
             "version": "1.0.5",
@@ -60,6 +106,52 @@
                 "instantiate"
             ],
             "time": "2015-06-14 21:17:01"
+        },
+        {
+            "name": "mikey179/vfsStream",
+            "version": "v1.6.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mikey179/vfsStream.git",
+                "reference": "c19925cd0390d3c436a0203ae859afa460d0474b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mikey179/vfsStream/zipball/c19925cd0390d3c436a0203ae859afa460d0474b",
+                "reference": "c19925cd0390d3c436a0203ae859afa460d0474b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.6.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "org\\bovigo\\vfs\\": "src/main/php"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Frank Kleine",
+                    "homepage": "http://frankkleine.de/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Virtual file system to mock the real file system in unit tests.",
+            "homepage": "http://vfs.bovigo.org/",
+            "time": "2016-04-09 09:42:01"
         },
         {
             "name": "myclabs/deep-copy",

@@ -10,6 +10,8 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "phpunit/phpunit": "5.3.*"
+        "phpunit/phpunit": "5.3.*",
+        "mikey179/vfsStream": "1.6.*",
+        "diablomedia/phpunit-pretty-printer": "^1.0"
     }
 }
