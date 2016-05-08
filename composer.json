@@ -1,0 +1,15 @@
+{
+    "name": "mirfilip/awesome-spl",
+    "description": "PHP SPL playground",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mirosław Filip",
+            "email": "mirfilip@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "phpunit/phpunit": "5.3.*"
+    }
+}
