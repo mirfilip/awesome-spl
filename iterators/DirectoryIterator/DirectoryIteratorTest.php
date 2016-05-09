@@ -120,4 +120,58 @@ class DirectoryIteratorTest extends \PHPUnit_Framework_TestCase
         $expectedDirectories = ['.', '..', 'emptyFolder', 'bar'];
         $this->assertSame($expectedDirectories, $directoriesFound);
     }
+
+    /**
+     * @test
+     */
+    public function toStringReturnsACurrentFileName()
+    {
+        $this->rootDirIterator->seek(2);
+        $this->assertSame('emptyFolder', (string) $this->rootDirIterator);
+    }
+
+    /**
+     * When you iterate over DirectoryIterator, every item returned by current() is a DirectoryIterator as well
+     * but with internal pointer set at particular file
+     *
+     * @test
+     * @see http://php.net/manual/en/class.filesystemiterator.php#114997
+     */
+    public function everyItemOfIterationIsDirectoryIterator()
+    {
+        foreach ($this->rootDirIterator as $item) {
+            $this->assertInstanceOf(\DirectoryIterator::class, $item);
+        }
+    }
+
+    /**
+     * DirectoryIterator does not provide a way to sort the data it iterates over.
+     * There most common approach is to get iterator copy as an array and do the sorting in array land.
+     * It's already done:
+     * @see https://github.com/symfony/finder/blob/master/Iterator/SortableIterator.php
+     *
+     * Still, having to create a temporary array, sort it and create a new iterator is far from optimal...
+     *
+     * @test
+     */
+    public function itDoesNotSupportSorting()
+    {
+        $directoryContentAsArray = [];
+
+        foreach ($this->rootDirIterator as $item) {
+            $directoryContentAsArray[] = $item->getFilename();
+        }
+
+        sort($directoryContentAsArray);
+
+        $expectedDirectoryContentSortedAlphabetically = [
+            '.',
+            '..',
+            'bar',
+            'emptyFolder',
+            'foo',
+        ];
+
+        $this->assertSame($expectedDirectoryContentSortedAlphabetically, $directoryContentAsArray);
+    }
 }
