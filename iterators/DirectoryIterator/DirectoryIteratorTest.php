@@ -70,7 +70,7 @@ class DirectoryIteratorTest extends \PHPUnit_Framework_TestCase
 
         $expected = [
             /**
-             * The two entries above are a current and parent directories
+             * The first two entries are a current and parent directories
              */
             '.',
             '..',
