@@ -10,7 +10,8 @@
          stopOnError="true"
          stopOnFailure="true"
          stopOnSkipped="false"
-         verbose="true">
+         printerClass="\DiabloMedia\PHPUnit\Printer\PrettyPrinter"
+         verbose="false">
     <testsuites>
         <testsuite name="datastructures">
             <directory suffix="Test.php">./datastructures/*</directory>
